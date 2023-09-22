@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Ball_Script : MonoBehaviour
 {
-    public int TestForce = 100;
+    public int TestForce = 100; //used for testing
+
     // Start is called before the first frame update
     void Start()
     {
