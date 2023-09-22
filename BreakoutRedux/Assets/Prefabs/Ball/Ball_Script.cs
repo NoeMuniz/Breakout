@@ -14,11 +14,26 @@ public class Ball_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //pressing space applies test force to the ball
-        if(Input.GetKeyDown("space"))
+        //pressing arrow keys applies test force to the ball
+        if(Input.GetKeyDown("up"))
         {
             //apply an force to the ball for testing
-            this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(TestForce, TestForce));
+            this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, TestForce));
+        }
+        if (Input.GetKeyDown("down"))
+        {
+            //apply an force to the ball for testing
+            this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -TestForce));
+        }
+        if (Input.GetKeyDown("left"))
+        {
+            //apply an force to the ball for testing
+            this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-TestForce, 0));
+        }
+        if (Input.GetKeyDown("right"))
+        {
+            //apply an force to the ball for testing
+            this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(TestForce, 0));
         }
     }
 }
