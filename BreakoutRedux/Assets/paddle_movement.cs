@@ -5,8 +5,14 @@ using UnityEngine;
 public class paddle_movement : MonoBehaviour
 {
     public float paddle_speed;
-    public Rigidbody2D rb;
+    Rigidbody2D rb;
     private Vector2 moveDir;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+    
 
     // Update is called once per frame
     void Update()
