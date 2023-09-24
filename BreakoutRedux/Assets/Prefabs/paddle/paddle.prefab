@@ -11,11 +11,12 @@ GameObject:
   - component: {fileID: 3829698054071117779}
   - component: {fileID: 3829698054071117778}
   - component: {fileID: 3829698054071117777}
-  - component: {fileID: 3829698054071117776}
   - component: {fileID: 3829698054071117780}
+  - component: {fileID: 3829698054071117776}
+  - component: {fileID: 4267288958518956628}
   m_Layer: 0
-  m_Name: pladdle
-  m_TagString: Untagged
+  m_Name: paddle
+  m_TagString: Paddle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3829698054071117778
 SpriteRenderer:
@@ -108,20 +109,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
---- !u!114 &3829698054071117776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3829698054071117615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0179c226c58556b429c5f407ffd48d34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paddle_speed: 5
-  rb: {fileID: 3829698054071117777}
 --- !u!61 &3829698054071117780
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -148,3 +135,29 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &3829698054071117776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3829698054071117615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0179c226c58556b429c5f407ffd48d34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paddle_speed: 5
+--- !u!114 &4267288958518956628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3829698054071117615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2548bdfc2e569ac419846ef0b6e96369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReferenceBall: {fileID: 7509400891316271525, guid: 9d19c83bc66ea0040aebcc4dfbf6ee59, type: 3}
