@@ -15,8 +15,13 @@ public class Ball_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    void TestControls()
+    {
         //pressing arrow keys applies test force to the ball
-        if(Input.GetKeyDown("up"))
+        if (Input.GetKeyDown("up"))
         {
             //apply an force to the ball for testing
             this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, TestForce));

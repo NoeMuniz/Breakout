@@ -23,13 +23,16 @@ public class BrickPlacerScript : MonoBehaviour
         //testing methods to spawn bricks
         Vector2 rawCameraDimensions = CalculateScreenSize(Camera.main);
 
-        int levelWidth = Mathf.RoundToInt(rawCameraDimensions.x -1 );//-1 temporary measure to allow a gap between the right wall and the bricks
-        int levelHeight = Mathf.RoundToInt(rawCameraDimensions.y);
+        int cameraWidthConverted = Mathf.RoundToInt(rawCameraDimensions.x -1 );//-1 temporary measure to allow a gap between the right wall and the bricks
+        int cameraHeightConverted = Mathf.RoundToInt(rawCameraDimensions.y);
+        Vector3 placementOffset = new Vector3(-rawCameraDimensions.x/2, -rawCameraDimensions.y/2, 0f);
+        Vector3 placementStartPosition = Camera.main.transform.position + placementOffset;
+        Vector2Int placementStartPositionConverted = new Vector2Int(Mathf.RoundToInt(placementStartPosition.x), Mathf.RoundToInt(placementStartPosition.y));
         int placementFloorY = Mathf.RoundToInt(rawCameraDimensions.y / 2);//temporary measure to place bricks halfway up the screen. used to set y offset
         int placementFloorX = Mathf.RoundToInt(2);//temporary measure to place bricks 2 units away from the left edge. used to set x offset
-        for (int x = placementFloorX; x < levelWidth; x++)
+        for (int x = placementStartPositionConverted.x + placementFloorX; x < placementStartPositionConverted.x + cameraWidthConverted; x++)
         {
-            for (int y = placementFloorY; y < levelHeight; y++)
+            for (int y = placementStartPositionConverted.y + placementFloorY; y < placementStartPositionConverted.y + cameraHeightConverted; y++)
             {
                 int placementChance = 100;
                 if (UnityEngine.Random.Range(1, 100+1) <= placementChance)//Random.Range is not max inclusive when using INT

@@ -27,6 +27,7 @@ public class Paddle_Spawning_Behavior : MonoBehaviour
 
     void SpawnBall()
     {
+        //running into issues when spawning while the platform is rotated. it causes morphing of the ball
         //set spawn position data
         float xOffset = 0f;
         float yOffset = 1f;
@@ -36,13 +37,16 @@ public class Paddle_Spawning_Behavior : MonoBehaviour
 
         //created varaibles to hold spawn position data
         Vector3 position = new Vector3(xPosition, yPosition, zPosition);
-        Quaternion rotation = new Quaternion();
+        Quaternion rotation = Quaternion.identity;
 
         //spawns the ball at the designated position.
-        GameObject ball = Instantiate(ReferenceBall, position, rotation);
-
+        GameObject ball = Instantiate(ReferenceBall, position, rotation);        
+        
         //make paddle parent of the ball
         ball.transform.parent = this.gameObject.transform;
+        //ball.transform.localScale = new Vector3(1f, 1f, 1f); //brute force resetting the balls scale since it seems to be messed up and inheriting form the parent. dont know why it only affects the child when the parent is at a rotated position
+        
+
 
         // Disable collisions with the object being attached
         if (ball.GetComponent<CircleCollider2D>())
@@ -55,8 +59,6 @@ public class Paddle_Spawning_Behavior : MonoBehaviour
         {
             ball.GetComponent<Rigidbody2D>().isKinematic = true;
         }
-
-
     }
 
     void Launchball()
