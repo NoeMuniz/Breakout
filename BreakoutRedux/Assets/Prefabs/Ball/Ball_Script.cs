@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Ball_Script : MonoBehaviour
 {
-    public int TestForce = 100; //used for testing
-
+    int TestForce = 1000; //used for testing
+    string UserInput;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,28 +15,54 @@ public class Ball_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        GetUserInput();
     }
 
-    void TestControls()
+    void FixedUpdate()
     {
+        ApplyUserInput();
+    }
+
+    void GetUserInput()
+    { 
+        UserInput = "";
         //pressing arrow keys applies test force to the ball
         if (Input.GetKeyDown("up"))
+        {
+            UserInput = "up";
+        }
+        if (Input.GetKeyDown("down"))
+        {
+            UserInput = "down";
+        }
+        if (Input.GetKeyDown("left"))
+        {
+            UserInput = "left";
+        }
+        if (Input.GetKeyDown("right"))
+        {
+            UserInput = "right";
+        }
+    }
+    void ApplyUserInput()
+    {
+        //pressing arrow keys applies test force to the ball
+        if (UserInput == "up")
         {
             //apply an force to the ball for testing
             this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, TestForce));
         }
-        if (Input.GetKeyDown("down"))
+        if (UserInput == "down")
         {
             //apply an force to the ball for testing
             this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -TestForce));
         }
-        if (Input.GetKeyDown("left"))
+        if (UserInput == "left")
         {
             //apply an force to the ball for testing
             this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-TestForce, 0));
         }
-        if (Input.GetKeyDown("right"))
+        if (UserInput == "right")
         {
             //apply an force to the ball for testing
             this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(TestForce, 0));
