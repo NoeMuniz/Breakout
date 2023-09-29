@@ -15,4 +15,11 @@ public class BrickScript : MonoBehaviour
     {
         
     }
+
+    public void DestroySelf()
+    {
+        float delay = 0.1f;
+        Debug.Log("Ball Touched Brick");
+        Destroy(this.gameObject, delay);
+    }
 }
